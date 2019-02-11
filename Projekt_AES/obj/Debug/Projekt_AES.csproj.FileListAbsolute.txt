@@ -1,0 +1,17 @@
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\bin\Debug\Projekt_AES.exe.config
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\bin\Debug\Projekt_AES.exe
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\bin\Debug\Projekt_AES.pdb
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\MainWindow.g.cs
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\App.g.cs
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES_MarkupCompile.cache
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES_MarkupCompile.lref
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\MainWindow.baml
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.g.resources
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.Properties.Resources.resources
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.csproj.GenerateResource.Cache
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.exe
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.pdb
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\bin\Debug\BouncyCastle.Crypto.dll
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.csproj.CoreCompileInputs.cache
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.csproj.CopyComplete
+D:\ProjektAES_BSK\Projekt_AES_WPF\Projekt_AES\obj\Debug\Projekt_AES.csprojAssemblyReference.cache

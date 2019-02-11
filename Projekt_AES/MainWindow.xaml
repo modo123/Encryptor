@@ -1,0 +1,121 @@
+﻿<Window x:Class="Projekt_AES.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_AES"
+        mc:Ignorable="d"
+        Title="Szyfrator" Height="581.4" Width="456.95">
+
+    <TabControl Name="Tabs">
+        <TabItem Header="Szyfrowanie" Name="EncryptionTab">
+            <Grid Cursor="Arrow" Margin="0,0,0.4,10.4">
+
+                <Label Name="ChooseFileLabel" Content="Wybierz plik" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="30" Width="120" FontSize="16" RenderTransformOrigin="0.462,0.525"/>
+                <Button Name="FileButton" Content="Plik" HorizontalAlignment="Left" Margin="20,45,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Click="ChooseFileClick" RenderTransformOrigin="0.473,-0.271"/>
+
+                <Label Name="ChooseModeLabel" Content="Wybierz tryb szyfrowania" HorizontalAlignment="Left" Margin="221,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox Name="EncryptionMode" HorizontalAlignment="Left" Margin="233,46,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.754,0.602"  >
+                    <ComboBoxItem Name="ECB" Content="ECB" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="CBC" Content="CBC" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="CFB" Content="CFB" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="OFB" Content="OFB" HorizontalAlignment="Left" Width="118.4"/>
+                </ComboBox>
+
+                <Button Name="EncryptionButton" Content="Szyfruj" HorizontalAlignment="Left" Margin="20,385,0,0" VerticalAlignment="Top" Width="397" Height="32" Click="EncryptFileClick" RenderTransformOrigin="0.45,0.625" FontSize="14"/>
+
+                <Label Name="WriteFileLabel" Content="Zapisz plik" HorizontalAlignment="Left" Margin="20,115,0,0" VerticalAlignment="Top" Width="120" Height="28" RenderTransformOrigin="0.525,1.607" FontSize="16"/>
+                <Button Name="WriteButton" Content="Zapisz" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="WriteFileClick" FontSize="14" RenderTransformOrigin="0.504,-0.077"/>
+
+                <ProgressBar Name="pbEncryption" Width="377" Height="20" Margin="20,433,25.6,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,1.286" />
+
+                <Label Content="Wybierz długość klucza" HorizontalAlignment="Left" Margin="233,73,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.502,0.04"/>
+                <ComboBox Name="KeyLength" HorizontalAlignment="Left" Margin="233,109,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.494,1.648">
+                    <ComboBoxItem Name="OneHundredTwentyEight" Content="128" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="OneHundredNinetyTwo" Content="192" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="TwoHundredFiftySix" Content="256" HorizontalAlignment="Left" Width="118.4"/>
+                </ComboBox>
+
+                <Label Content="Wybierz długość podbloku" HorizontalAlignment="Left" Margin="233,136,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox Name="SubBlockLength" HorizontalAlignment="Left" Margin="233,172,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.496,1.33">
+                    <ComboBoxItem Name="Eight" Content="8" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="Sixteen" Content="16" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="TwentyFour" Content="24" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Name="ThirtyTwo" Content="32" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="40" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="48" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="56" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="64" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="72" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="80" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="88" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="96" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="104" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="112" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="120" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem Content="128" HorizontalAlignment="Left" Width="118.4"/>
+                </ComboBox>
+                <Label Name="InputFilePathName" Content="" HorizontalAlignment="Left" Margin="20,73,0,0" VerticalAlignment="Top" Width="207"/>
+                <Label Name="OutputFilePathName" Content="" HorizontalAlignment="Left" Margin="20,179,0,0" VerticalAlignment="Top" Width="207"/>
+
+                <Label Name="OdbiorcyLabel" Content="Odbiorcy" HorizontalAlignment="Left" Margin="20,222,0,0" VerticalAlignment="Top" Width="85" FontSize="16"/>
+                <ListBox Name="RecipientsListBox" HorizontalAlignment="Left" Height="100" Margin="155,249,0,0" VerticalAlignment="Top" Width="262"/>
+                <Button Name="AddRecipient" Content="Dodaj" HorizontalAlignment="Left" Margin="20,258,0,0" VerticalAlignment="Top" Width="89" Height="24" Click="AddRecipientClick"/>
+                <Button Name="RemoveRecipient" Content="Usun" HorizontalAlignment="Left" Margin="20,299,0,0" VerticalAlignment="Top" Width="89" Height="27" Click="RemoveRecipient_Click"/>
+            </Grid>
+        </TabItem>
+
+
+        <TabItem Header="Użytkownicy">
+            <Grid Margin="0,-5,0.4,5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="96*"/>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="230*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Zarejestruj się" HorizontalAlignment="Left" Margin="35,15,0,0" VerticalAlignment="Top" Width="140" Height="35" FontSize="16" Grid.Column="2" Grid.ColumnSpan="4"/>
+                <TextBox Name="UserNameRegister" Height="25" TextWrapping="Wrap" Text="" Width="140" Margin="0,103,160,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="14" Grid.Column="2" Grid.ColumnSpan="4"/>
+                <PasswordBox Name="PasswordRegister" HorizontalAlignment="Left" Margin="25,164,0,0" VerticalAlignment="Top" Width="140" Height="24" Grid.Column="2" Grid.ColumnSpan="4"/>
+                <Button Name="RegisterButton" Content="Zarejestruj" HorizontalAlignment="Left" Margin="40,220,0,0" VerticalAlignment="Top" Width="319" Height="25" FontSize="14" Click="RegisterButtonClick" Grid.Column="1" Grid.ColumnSpan="5"/>
+                <Label Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="35,73,0,0" VerticalAlignment="Top" Height="25" Width="121" Grid.Column="2" Grid.ColumnSpan="4"/>
+                <Label Content="Hasło" HorizontalAlignment="Left" Margin="2,138,0,0" VerticalAlignment="Top" Width="46" Grid.Column="4" Grid.ColumnSpan="2" Height="26"/>
+
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Deszyfrowanie" Name="DecryptionTab">
+            <Grid Margin="0,-5,0.4,5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="58*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="230*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Wybierz plik" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" FontSize="16" Width="108"/>
+                <Button Grid.ColumnSpan="3" Name="DecChooseButton" FontSize="14" Content="Plik" HorizontalAlignment="Left" Margin="16,52,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="ChooseFileClick"/>
+                <Label Content="Odbiorcy:" HorizontalAlignment="Left" Margin="0,150,0,0" VerticalAlignment="Top" Width="68" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Content="Haslo:" Grid.Column="1" HorizontalAlignment="Left" Margin="0,280,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <ListBox Name="lbUsersAllowed" Grid.ColumnSpan="7" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="0,175,0,0" VerticalAlignment="Top" Width="201"/>
+                <PasswordBox Name="pbPassword" Grid.ColumnSpan="7" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,306,0,0" VerticalAlignment="Top" Width="201"/>
+                <ProgressBar Name="pbDecryption" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="20" Margin="0,433,0,0" VerticalAlignment="Top" Width="381" Grid.Column="1"/>
+                <Button Grid.ColumnSpan="7" FontSize="14" Content="Deszyfruj" Grid.Column="1" HorizontalAlignment="Left" Margin="0,374,0,0" VerticalAlignment="Top" Width="381" Height="33" Click="decryptButtonClick"/>
+                <Label Content="" Name="DecInputFilePath" Grid.Column="4" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="266"/>
+                <Label Content="Zapisz plik" HorizontalAlignment="Left" Margin="16,93,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" FontSize="16" Width="92"/>
+                <Button Content="Zapisz" Name="DecFileButton" FontSize="14" HorizontalAlignment="Left" Margin="16,124,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3" Height="21" Click="WriteFileClick"/>
+                <Label Content="" Name="DecOutputFilePath" Grid.Column="4" HorizontalAlignment="Left" Margin="0,121,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="266"/>
+
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</Window>
